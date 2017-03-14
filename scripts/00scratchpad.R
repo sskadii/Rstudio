@@ -3,4 +3,100 @@ log(1)
 x<-log(2)
 
 y <- 1:5 # this is a vector
+y[3]
 
+
+
+ls() # list what has been assigned (it is in the Environment)
+rm(x,y) 
+rm(y)
+rm(list = ls()) # removes everything from the environment
+
+
+installed.packages("tidyr")
+
+results<-boxplot(rnorm(10))
+results #describes the results 
+
+example(boxplot) #takes you through examples of plots
+
+installed.packages()
+
+#### exercise 1 CATS
+cats <- read.csv(file = "data/feline-data.csv")
+cats$weight
+cats$coat
+
+## Say we discovered that the scale weighs two Kg light:
+cats$weight + 2
+cats$weight
+paste("My cat is", cats$coat) #it does not matter whether we use single or double quotes
+typeof(cats$weight)
+typeof(1L) #L is a notation that this is an integer
+typeof(1+1i)
+typeof(TRUE)
+typeof("banana")
+file.show("data/feline-data.csv")
+class(cats)
+cats <- read.csv(file="data/feline-data.csv")
+coats <- c('tabby', 'tortoiseshell', 'tortoiseshell', 'black', 'tabby')
+ CATegories <- factor(coats)
+ class(CATegories)
+ 
+ str(CATegories)
+ ?read.csv #activates help - looks for this function in loaded packages (??red.csv looks in INSTALLED packages)
+ 
+ 
+ my_vector <- vector(length = 3)
+ another_vector <- vector(mode='character', length=3)
+ str(another_vector)
+ combine_vector <- c(2,6,3) 
+ quiz_vector <- c(2,6,'3') ## type coercion and the coercion rules go: logical -> integer -> numeric -> complex -> character, where -> can be read as are transformed into
+ 
+ another_coertion_vector <- c(0, TRUE)
+ another_coertion_vector
+ 
+ character_vector_example <- c('0','2','4')
+ character_coerced_to_numeric <- as.numeric(character_vector_example) 
+ numeric_coerced_to_logical <- as.logical(character_coerced_to_numeric)
+ cats$likes_string
+ 
+ 
+ mySeries <- 1:10
+ seq(10)
+ seq(1,10, by=0.1)
+ sequence_example <- seq(10)
+ sequence_example
+ head(sequence_example, n=2)
+ length(sequence_example)
+ class(sequence_example)
+ typeof(sequence_example)
+ 
+ 
+ #adding to a vector
+ v <- c(1,2,3)
+ v <- c(v,4)
+ 
+ str(cats$weight)
+ str(cats$likes_string)
+ cats$likes_string <- as.logical(cats$likes_string)
+ 
+ str(cats$likes_string)
+ 
+ 
+ list_example <- list(1, "a", TRUE, 1+4i)
+ list_example
+ 
+ typeof(cats)
+ 
+ cats[1] # refers to the first vector of the list - returns first column as a list
+ cats[[1]] #returns the content of the list item
+ cats$coat #calls items by name
+ cats["coat"] #returns a list
+ cats[1, 1] #it returns object in the first row and first column
+ 
+ cats[, 1] #lists the first column
+ cats[1, ] #lists the first row
+ 
+ matrix_example <- matrix(0, ncol=6, nrow=3)
+ length(matrix_example) # in case of matrices it gives the total number of elements rather than just the actual length
