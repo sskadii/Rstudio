@@ -100,3 +100,114 @@ coats <- c('tabby', 'tortoiseshell', 'tortoiseshell', 'black', 'tabby')
  
  matrix_example <- matrix(0, ncol=6, nrow=3)
  length(matrix_example) # in case of matrices it gives the total number of elements rather than just the actual length
+ 
+ LETTERS
+ x <- matrix(1:50, ncol=5, nrow=10)
+ 
+ dataTypes <- c('double', 'complex', 'integer', 'character', 'logical')
+ dataStructures <- c('data.frame', 'vector', 'factor', 'list', 'matrix')
+ answer <- list(dataTypes, dataStructures)
+ answer
+ 
+ 
+ age <- c(4,5,8)
+ cats <- cbind(cats, age) #binds columns together
+ cats
+ 
+ cats[-4,] #to remove rows
+ cats  <-  cats[ ,-5] 
+ 
+ new.cat  <- list("black", 3.1 , 0, 8)
+ cats <- rbind(cats, new.cat) # change is not permanent until you assign it
+ 
+ cats$coat <- as.character(cats$coat)
+ str(cats) # to check the number and names of categories so that "blac" does not become a new category because of a typo
+
+ #Appending to a dataframe
+ 
+ cats <- rbind(cats, cats)
+cats
+
+levels(cats$coat) <- c(levels(cats$coat), "tortoiseshell") #this tells it to take additional level
+
+str(cats$coat)
+ 
+cats$coat <- as.character(cats$coat)
+cats$coat <- factor(cats$coat) 
+
+levels(cats$coat)[4] <- "ginger" #it replaces 4th level with ginger
+
+cats$coat
+
+levels(cats$coat) <- levels(cats$coat)
+cats$coat
+
+cats[c(1,4,5),]
+
+gap.df <- read.csv("data/gapminder-FiveYearData.csv")
+nrow(gap.df)
+ncol(gap.df)
+
+str(gap.df)
+names(gap.df) #names of columns
+
+length(age)
+
+cats[cats$coat == "black", ] # return only black pussies
+
+cats[cats$coat != "black", ] # return NOTblack pussies
+
+play.df <- gap.df[gap.df$country %in% c("Afghanistan", "Slovenia"), ]
+play.df
+
+gap.df[gap.df$year == 2002 | gap.df$year == 2007, ]
+
+
+
+##### dplyr
+
+for (i in cats$coat) {print(paste("The value of i is", i))}
+
+for (j in 1:3) {
+  for (i in cats$coat) {
+        print(paste("The value of i is", i, "and j is", j ))
+  }
+}  
+## to run it the coursor has to be in the top line
+
+
+
+my_vec <- 1:5
+for (i in 1:length(my_vec)) {
+  print(my_vec[i]*2)
+}
+### print stuff within loops otherwise it returns blanks
+
+
+my_vec * 2 # this will also work
+
+x <- runif(1) # selects a random number from uniform distribution  and do it once
+if (x <= 0.5) {
+  print("Heads")
+} else {
+  print("Tails")
+}
+
+#or a more elegant way
+x <- runif(1)
+ifelse(x<=0.5, 
+       paste("Heads"),
+       paste("Tails"))
+
+       
+
+####### something something new
+      my_var <- "cat"
+      switch(my_var,
+             "cat" = print("why are there so many cats"),
+             "dog" = print("these folks are left out"),
+              "humans" = print("eirgh"),
+             "something else entirely")
+
+?switch
+       
